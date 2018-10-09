@@ -1,3 +1,5 @@
+import sys
+
 def letter_counter(STRING):
     STRING = STRING.lower()
     counter = dict()
@@ -10,8 +12,8 @@ def letter_counter(STRING):
     return (counter.items())
 
 def main():
-    str_0 = input('')
-    inp_str = open(str_0, newline='\n')
+
+    inp_str = open(sys.argv[1], newline='\n')
     inp_str_read = inp_str.read()
     inp_str_txt = letter_counter(inp_str_read)
     print (inp_str_txt)
