@@ -12,10 +12,13 @@ class Triangle(Polygon):
         super().__init__(3)
     def find(self):
         a, b, c = self.sides
-        try:
-            if a+b > c and a+c > b and b+c > a:
-        except Exception:
-            print('Error_1')
+        if a+b > c and a+c > b and b+c > a:
+            print('It is a right triangle')
+        else:
+            raise Exception('It is not right triangle')
+
+
+
 
 class Triangle_rect(Triangle):
     def __init__(self):
@@ -23,16 +26,18 @@ class Triangle_rect(Triangle):
     def find_area(self):
         a, b, c = self.sides
         if a**2+b**2+c**2 == 2*max(a, b, c)**2:
+            print('It is a rectangular triangle')
             self.sides.remove(max(self.sides))
             area = 0.5 * self.sides[0] * self.sides[1]
         else:
+            print('It is a usual triangle')
             s = (a + b + c) / 2
             area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
         print('The area of the triangle is %0.2f' % area)
 
 tr_area = Triangle_rect()
 tr_area.input_sides()
-tr_area.disp_sides()
+#tr_area.disp_sides()
 tr_area.find()
 tr_area.find_area()
 
