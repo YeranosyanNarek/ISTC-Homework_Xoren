@@ -17,9 +17,6 @@ class Triangle(Polygon):
         else:
             raise Exception('It is not right triangle')
 
-
-
-
 class Triangle_rect(Triangle):
     def __init__(self):
         super().__init__()
@@ -29,11 +26,10 @@ class Triangle_rect(Triangle):
             print('It is a rectangular triangle')
             self.sides.remove(max(self.sides))
             area = 0.5 * self.sides[0] * self.sides[1]
+            print('The area of the triangle is %0.2f' % area)
         else:
-            print('It is a usual triangle')
-            s = (a + b + c) / 2
-            area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
-        print('The area of the triangle is %0.2f' % area)
+            return Triangle()
+            #raise Exception('It is not rectangular triangle')
 
 tr_area = Triangle_rect()
 tr_area.input_sides()
